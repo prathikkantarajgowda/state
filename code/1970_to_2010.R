@@ -1,10 +1,10 @@
-# state and race data 1970 to 2010
+# state and race population data 1970 to 2010
 
 library(tidyverse)
 
 # read in data from nhgis0002_ts_nominal_state.csv
 # state-level persons by detailed race data from 1970 to 2010
-state_and_race <- 
+raw_data_1970_2010 <- 
   read_csv("data/nhgis0002_csv/nhgis0002_ts_nominal_state.csv") %>%
   
   # decode variables to readable names, remove superfluous fields
@@ -62,8 +62,8 @@ state_and_race <-
   ) %>% as_tibble()
 
 # tidy data
-state_and_race_tidy <- 
-  pivot_longer(data = state_and_race, 
+state_and_race_1970_to_2010 <- 
+  pivot_longer(data = raw_data_1970_2010, 
                cols = -state,
                
                # race and year should be variables with their own columns
