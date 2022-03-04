@@ -1,33 +1,111 @@
-# state and race population data 1850
+# state and race and sex and age population data 1850
 # DONE
 
 library(tidyverse)
 
-state_and_race_1850 <- 
-  read_csv("data/1850/nhgis0014_ds10_1850_state.csv") %>% 
+state_1850 <- 
+  read_csv("data/1850/nhgis0020_ds10_1850_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
-            # encoding scheme is gender_race_slavestatus_religion
+            # encoding scheme is gender_race_slavestatus_age
             # we want specific data on race, gender, and slave status
             # we want cumulative data on white pop, colored pop, and slave pop
+            male_white_NA_under1 = AEL001,
+            male_white_NA_1to4 = AEL002,
+            male_white_NA_5to9 = AEL003,
+            male_white_NA_10to14 = AEL004,
+            male_white_NA_15to19 = AEL005,
+            male_white_NA_20to29 = AEL006,
+            male_white_NA_30to39 = AEL007,
+            male_white_NA_40to49 = AEL008,
+            male_white_NA_50to59 = AEL009,
+            male_white_NA_60to69 = AEL010,
+            male_white_NA_70to79 = AEL011,
+            male_white_NA_80to89 = AEL012,
+            male_white_NA_90to99 = AEL013,
+            male_white_NA_100andover = AEL014,
+            male_white_NA_unknown = AEL015,
+            female_white_NA_under1 = AEL016,
+            female_white_NA_1to4 = AEL017,
+            female_white_NA_5to9 = AEL018,
+            female_white_NA_10to14 = AEL019,
+            female_white_NA_15to19 = AEL020,
+            female_white_NA_20to29 = AEL021,
+            female_white_NA_30to39 = AEL022,
+            female_white_NA_40to49 = AEL023,
+            female_white_NA_50to59 = AEL024,
+            female_white_NA_60to69 = AEL025,
+            female_white_NA_70to79 = AEL026,
+            female_white_NA_80to89 = AEL027,
+            female_white_NA_90to99 = AEL028,
+            female_white_NA_100andover = AEL029,
+            female_white_NA_unknown = AEL030,
             
-            male_white_NA_NA = AEW001,
-            female_white_NA_NA = AEW002,
-            
-            male_colored_slave_NA = AEW005,
-            female_colored_slave_NA = AEW006,
-            
-            male_colored_free_NA = AEW003,
-            female_colored_free_NA = AEW004,
-            
-            NA_white_NA_NA = AEW001 + AEW002,
-            NA_colored_NA_NA = AEW003 + AEW004 + AEW005 + AEW006,
-            NA_NA_slave_NA = AEW006 + AEW005
+            male_colored_free_under1 = AEL031,
+            male_colored_free_1to4 = AEL032,
+            male_colored_free_5to9 = AEL033,
+            male_colored_free_10to14 = AEL034,
+            male_colored_free_15to19 = AEL035,
+            male_colored_free_20to29 = AEL036,
+            male_colored_free_30to39 = AEL037,
+            male_colored_free_40to49 = AEL038,
+            male_colored_free_50to59 = AEL039,
+            male_colored_free_60to69 = AEL040,
+            male_colored_free_70to79 = AEL041,
+            male_colored_free_80to89 = AEL042,
+            male_colored_free_90to99 = AEL043,
+            male_colored_free_100andover = AEL044,
+            male_colored_free_unknown = AEL045,
+            female_colored_free_under1 = AEL046,
+            female_colored_free_1to4 = AEL047,
+            female_colored_free_5to9 = AEL048,
+            female_colored_free_10to14 = AEL049,
+            female_colored_free_15to19 = AEL050,
+            female_colored_free_20to29 = AEL051,
+            female_colored_free_30to39 = AEL052,
+            female_colored_free_40to49 = AEL053,
+            female_colored_free_50to59 = AEL054,
+            female_colored_free_60to69 = AEL055,
+            female_colored_free_70to79 = AEL056,
+            female_colored_free_80to89 = AEL057,
+            female_colored_free_90to99 = AEL058,
+            female_colored_free_100andover = AEL059,
+            female_colored_free_unknown = AEL060,
+            male_colored_slave_under1 = AEL061,
+            male_colored_slave_1to4 = AEL062,
+            male_colored_slave_5to9 = AEL063,
+            male_colored_slave_10to14 = AEL064,
+            male_colored_slave_15to19 = AEL065,
+            male_colored_slave_20to29 = AEL066,
+            male_colored_slave_30to39 = AEL067,
+            male_colored_slave_40to49 = AEL068,
+            male_colored_slave_50to59 = AEL069,
+            male_colored_slave_60to69 = AEL070,
+            male_colored_slave_70to79 = AEL071,
+            male_colored_slave_80to89 = AEL072,
+            male_colored_slave_90to99 = AEL073,
+            male_colored_slave_100andover = AEL074,
+            male_colored_slave_unknown = AEL075,
+            female_colored_slave_under1 = AEL076,
+            female_colored_slave_1to4 = AEL077,
+            female_colored_slave_5to9 = AEL078,
+            female_colored_slave_10to14 = AEL079,
+            female_colored_slave_15to19 = AEL080,
+            female_colored_slave_20to29 = AEL081,
+            female_colored_slave_30to39 = AEL082,
+            female_colored_slave_40to49 = AEL083,
+            female_colored_slave_50to59 = AEL084,
+            female_colored_slave_60to69 = AEL085,
+            female_colored_slave_70to79 = AEL086,
+            female_colored_slave_80to89 = AEL087,
+            female_colored_slave_90to99 = AEL088,
+            female_colored_slave_100andover = AEL089,
+            female_colored_slave_unknown = AEL090
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "religion"),
+               names_to = c("gender", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
@@ -36,11 +114,11 @@ state_and_race_1850 <-
             race,
             slave_status,
             religion = "", 
-            age = "", 
+            age, 
             year = 1850, 
             statistic = "population",
             value,
             source = "INSERTSOURCENAMEHERE",
             notes = "",
             personentered = "Prathik", 
-            complete = "")
+            complete = "yes")

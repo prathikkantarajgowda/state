@@ -3,7 +3,7 @@
 
 library(tidyverse)
 
-state_and_race_1810 <- 
+state_1810 <- 
   read_csv("data/1810/nhgis0009_ds3_1810_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
@@ -41,4 +41,4 @@ state_and_race_1810 <-
             source = "INSERTSOURCENAMEHERE",
             notes = "",
             personentered = "Prathik", 
-            complete = "")
+            complete = "yes")

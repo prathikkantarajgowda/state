@@ -1,33 +1,71 @@
-# state and race population data 1840
+# state and race and sex and age population data 1840
 # DONE
 
 library(tidyverse)
 
-state_and_race_1840 <- 
-  read_csv("data/1840/nhgis0013_ds7_1840_state.csv") %>% 
+state_1840 <- 
+  read_csv("data/1840/nhgis0020_ds7_1840_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
-            # encoding scheme is gender_race_slavestatus_religion
+            # encoding scheme is gender_race_slavestatus_age
             # we want specific data on race, gender, and slave status
             # we want cumulative data on white pop, colored pop, and slave pop
+            male_white_NA_under5 = ACY001,
+            male_white_NA_5to9 = ACY002,
+            male_white_NA_10to14 = ACY003,
+            male_white_NA_15to19 = ACY004,
+            male_white_NA_20to29 = ACY005,
+            male_white_NA_30to39 = ACY006,
+            male_white_NA_40to49 = ACY007,
+            male_white_NA_50to59 = ACY008,
+            male_white_NA_60to69 = ACY009,
+            male_white_NA_70to79 = ACY010,
+            male_white_NA_80to89 = ACY011,
+            male_white_NA_90to99 = ACY012,
+            male_white_NA_100andover = ACY013,
+            female_white_NA_under5 = ACY014,
+            female_white_NA_5to9 = ACY015,
+            female_white_NA_10to14 = ACY016,
+            female_white_NA_15to19 = ACY017,
+            female_white_NA_20to29 = ACY018,
+            female_white_NA_30to39 = ACY019,
+            female_white_NA_40to49 = ACY020,
+            female_white_NA_50to59 = ACY021,
+            female_white_NA_60to69 = ACY022,
+            female_white_NA_70to79 = ACY023,
+            female_white_NA_80to89 = ACY024,
+            female_white_NA_90to99 = ACY025,
+            female_white_NA_100andover = ACY026,
             
-            male_white_NA_NA = ACR001,
-            female_white_NA_NA = ACR002,
-            
-            male_colored_slave_NA = ACU003,
-            female_colored_slave_NA = ACU004,
-            
-            male_colored_free_NA = ACU001,
-            female_colored_free_NA = ACU002,
-            
-            NA_white_NA_NA = ACR001 + ACR002,
-            NA_colored_NA_NA = ACU003 + ACU004 + ACU001 + ACU002,
-            NA_NA_slave_NA = ACU003 + ACU004
+            male_colored_free_under10 = ACZ001,
+            male_colored_free_10to23 = ACZ002,
+            male_colored_free_24to35 = ACZ003,
+            male_colored_free_36to54 = ACZ004,
+            male_colored_free_55to99 = ACZ005,
+            male_colored_free_100andover = ACZ006,
+            female_colored_free_under10 = ACZ007,
+            female_colored_free_10to23 = ACZ008,
+            female_colored_free_24to35 = ACZ009,
+            female_colored_free_36to54 = ACZ010,
+            female_colored_free_55to99 = ACZ011,
+            female_colored_free_100andover = ACZ012,
+            male_colored_slave_under10 = ACZ013,
+            male_colored_slave_10to23 = ACZ014,
+            male_colored_slave_24to35 = ACZ015,
+            male_colored_slave_36to54 = ACZ016,
+            male_colored_slave_55to99 = ACZ017,
+            male_colored_slave_100andover = ACZ018,
+            female_colored_slave_under10 = ACZ019,
+            female_colored_slave_10to23 = ACZ020,
+            female_colored_slave_24to35 = ACZ021,
+            female_colored_slave_36to54 = ACZ022,
+            female_colored_slave_55to99 = ACZ023,
+            female_colored_slave_100andover = ACZ024,
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "religion"),
+               names_to = c("gender", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
@@ -36,11 +74,11 @@ state_and_race_1840 <-
             race,
             slave_status,
             religion = "", 
-            age = "", 
+            age, 
             year = 1840, 
             statistic = "population",
             value,
             source = "INSERTSOURCENAMEHERE",
             notes = "",
             personentered = "Prathik", 
-            complete = "")
+            complete = "yes")
