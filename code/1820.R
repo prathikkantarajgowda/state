@@ -9,6 +9,8 @@ state_and_race_1820 <-
   transmute(year = YEAR, state = STATE,
             
             # encoding scheme is gender_race_slavestatus_religion
+            # we want specific data on race, gender, and slave status
+            # we want cumulative data on white pop, colored pop, and slave pop
             
             male_white_NA_NA = ABB001,
             female_white_NA_NA = ABB002,
@@ -20,7 +22,8 @@ state_and_race_1820 <-
             female_colored_free_NA = ABB006,
             
             NA_white_NA_NA = ABB001 + ABB002,
-            NA_colored_NA_NA = ABB003 + ABB004 + ABB005 + ABB006
+            NA_colored_NA_NA = ABB003 + ABB004 + ABB005 + ABB006,
+            NA_NA_slave_NA = ABB003 + ABB004
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),

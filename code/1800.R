@@ -9,6 +9,8 @@ state_and_race_1800 <-
   transmute(year = YEAR, state = STATE,
             
             # encoding scheme is gender_race_slavestatus_religion
+            # we want specific data on race, gender, and slave status
+            # we want cumulative data on white pop, colored pop, and slave pop
             
             male_white_NA_NA = AA0001, # white male population
             female_white_NA_NA = AA0002, # white female population
