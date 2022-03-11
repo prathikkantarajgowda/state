@@ -40,7 +40,7 @@ state_1930 <-
             year = 1930,
             statistic = "population",
             value,
-            source = "INSERTSOURCENAMEHERE",
+              source = "INSERTSOURCENAMEHERE",
             notes = "",
             personentered = "Prathik", 
             complete = "")
