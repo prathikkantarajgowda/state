@@ -1,0 +1,50 @@
+# state population data 1950
+# DONE
+#
+# they removed black people??
+
+# encoding scheme is gender_race_slavestatus_religion
+# we want specific data on race, gender, and slave status
+# we want cumulative data on white pop, colored pop, and slave pop
+
+library(tidyverse)
+
+state_1950 <- 
+  read_csv("data/1950/nhgis0020_ds83_1950_state.csv") %>% 
+  as_tibble() %>%
+  mutate(year = YEAR, state = STATE) %>% 
+  pivot_longer(cols = starts_with("B1W"),
+               names_to = "demographic") %>%
+  mutate(demographic = (parse_number(substr(demographic, 4, 6))),
+         mod = demographic %% 17) %>% 
+  transmute(country = "United States", 
+            state,
+            gender = ifelse(between(demographic, 1, 17) |
+                              between(demographic, 35, 51),
+                            "male", "female"),
+            race = ifelse(between(demographic, 1, 34), "white", "non_white"),
+            age = case_when(mod == 0 ~ "85_and_over",
+                            mod == 1 ~ "0_to_4",
+                            mod == 2 ~ "5_to_0",
+                            mod == 3 ~ "10_to_14",
+                            mod == 4 ~ "15_to_19",
+                            mod == 5 ~ "20_to_24",
+                            mod == 6 ~ "25_to_29",
+                            mod == 7 ~ "30_to_34",
+                            mod == 8 ~ "35_to_39",
+                            mod == 9 ~ "40_to_44",
+                            mod == 10 ~ "45_to_49",
+                            mod == 11 ~ "50_to_54",
+                            mod == 12 ~ "55_to_59",
+                            mod == 13 ~ "60_to_64",
+                            mod == 14 ~ "65_to_69",
+                            mod == 15 ~ "70_to_74",
+                            mod == 16 ~ "75_to_84"),
+            year = 1950,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "",
+            demographic)
