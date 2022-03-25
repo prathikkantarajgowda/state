@@ -19,8 +19,8 @@ Here are the years for which we have collected all relevant data:
 - [ ] 1920
 - [x] 1930
 - [x] 1940
-- [ ] 1950
-- [ ] 1960
+- [x] 1950
+- [x] 1960
 - [ ] 1970
 - [ ] 1980
 - [ ] 1990
