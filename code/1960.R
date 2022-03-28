@@ -25,7 +25,7 @@ state_1960 <-
             race = ifelse(between(demographic, 1, 36), "white", "non_white"),
             age = case_when(mod == 0 ~ "85_and_over",
                             mod == 1 ~ "0_to_4",
-                            mod == 2 ~ "5_to_0",
+                            mod == 2 ~ "5_to_10",
                             mod == 3 ~ "10_to_14",
                             mod == 4 ~ "15_to_19",
                             mod == 5 ~ "20_to_24",
