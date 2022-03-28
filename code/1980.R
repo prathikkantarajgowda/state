@@ -1,12 +1,5 @@
-# state population data 1980
-# DONE
-#
-# age ranges poor?
-
-#
-# encoding scheme is gender_race_slavestatus_religion
-# we want specific data on race, gender, and slave status
-# we want cumulative data on white pop, colored pop, and slave pop
+# state population data 1980 (NHGIS)
+# - age ranges are too broad
 
 library(tidyverse)
 

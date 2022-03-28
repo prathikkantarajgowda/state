@@ -1,9 +1,14 @@
 # state
-This project gathers US state-level population data by race, sex, slave-status, and age from years 1790 to the present. The data source is the decennial US census.
-Unfortunately, the earlier census data does not contain all of the pertinent data, but by year 1830 we start to see race x sex x age data.
+This project gathers US state-level population data by race, sex, slave-status, 
+and age from years 1790 to the present. The data is from the decennial 
+census through NHGIS or ICPSR.
 
-Here are the years for which we have collected all relevant data:
+There is a source file for each decade in the code/ folder. At the top of each
+file is documentation regarding the source of the data (NHGIS vs ICPSR) and any
+missing data points (e.g., we might be missing sex data for slaves or granular
+age ranges).
 
+Progress:
 - [x] 1790
 - [x] 1800
 - [x] 1810

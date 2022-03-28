@@ -1,11 +1,5 @@
-# state population data 1950
-# DONE
-#
-# they removed black people??
-
-# encoding scheme is gender_race_slavestatus_religion
-# we want specific data on race, gender, and slave status
-# we want cumulative data on white pop, colored pop, and slave pop
+# state population data 1950 (NHGIS)
+# - no data on black people (only "white" and "non_white" here?)
 
 library(tidyverse)
 

@@ -1,5 +1,6 @@
-# state and race population data 1810
-# DONE
+# state population data 1810 (NHGIS)
+# - no age data
+# - no sex data for slaves
 
 library(tidyverse)
 
@@ -17,11 +18,6 @@ state_1810 <-
             
             NA_colored_free_NA = AA7001, # free colored population
             NA_colored_slave_NA = AA7002, # slave colored population
-            
-            NA_NS_slave_NA = AA7002, # slave population
-            
-            NA_white_NA_NA = AA9001 + AA9002, # white population
-            NA_colored_NA_NA = AA7001 + AA7002, # colored population
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),

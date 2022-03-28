@@ -1,5 +1,4 @@
-# state population data 1860
-# DONE
+# state population data 1860 (NHGIS)
 
 library(tidyverse)
 

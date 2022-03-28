@@ -1,5 +1,4 @@
-# state and race and sex and age population data 1840
-# DONE
+# state population data 1840 (NHGIS)
 
 library(tidyverse)
 
