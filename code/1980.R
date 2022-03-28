@@ -25,7 +25,7 @@ state_1980 <-
             race = ifelse(between(demographic, 1, 10), "white",
                           ifelse(between(demographic, 11, 20), "black", 
                                  ifelse(between(demographic, 21, 30), "native",
-                                        "asian_pacific_islander"))),
+                                        "aapi"))),
             age = case_when(mod == 0 ~ "65_and_over",
                             mod == 1 ~ "0_to_5",
                             mod == 2 ~ "5_to_14",
