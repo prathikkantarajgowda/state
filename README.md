@@ -23,7 +23,7 @@ Here are the years for which we have collected all relevant data:
 - [ ] 1960
 - [ ] 1970
 - [x] 1980
-- [ ] 1990
+- [x] 1990
 - [ ] 2000
 - [ ] 2010
 - [ ] 2020
