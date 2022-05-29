@@ -1,11 +1,10 @@
 # state population data 1790 (NHGIS)
-# - no age data
-# - no sex data for slaves
+# - we have sex data for whites, but not coloreds
 
 library(tidyverse)
 
 state_1790 <- 
-  read_csv("data/1790/nhgis_ds1_1790_state.csv") %>% 
+  read_csv("data/1790/nhgis0028_csv/nhgis0028_ds1_1790_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -20,12 +19,12 @@ state_1790 <-
             NA_colored_slave_NA = AAQ002, # slave colored population
             ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "religion"),
+               names_to = c("sex", "race", "slave_status", "religion"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             slave_status,
             religion = "", 
