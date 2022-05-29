@@ -44,10 +44,10 @@ not complete unless we have all race x sex data for all available races).
 NOTE: Slavery was abolished in 1865, so lack of slave data past then is not 
 an issue
 
-| Year | race     | slave    | sex      | age      |
+| year | race     | slave    | sex      | age      |
 |------|----------|----------|----------|----------|
 | 1790 | &check;  | &check;  |          |          |
-| 1800 |          |          |          |          |
+| 1800 | &check;  | &check;  |          |          |
 | 1810 |          |          |          |          |
 | 1820 |          |          |          |          |
 | 1830 |          |          |          |          |
