@@ -1,9 +1,10 @@
 # state population data 1860 (NHGIS)
+# manually doing age may be untenable ATM? done here but it takes too long
 
 library(tidyverse)
 
 state_1860 <- 
-  read_csv("data/1860/nhgis0020_ds14_1860_state.csv") %>% 
+  read_csv("data/1860/nhgis0036_csv/nhgis0036_ds14_1860_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -201,12 +202,12 @@ state_1860 <-
             female_asiatic_NA_unknown = AH0180
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "age"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             age, 
             year = 1860, 

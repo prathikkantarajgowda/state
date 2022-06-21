@@ -1,11 +1,14 @@
 # state population data 1810 (NHGIS)
 # - no age data
-# - no sex data for slaves
+# - no sex data for non whites 
+# - we have race x slave status data for coloreds, but their def of colored does
+#   not include indians. thus I have also included raw white/colored pop stats
+#   to harmonize
 
 library(tidyverse)
 
 state_1810 <- 
-  read_csv("data/1810/nhgis0009_ds3_1810_state.csv") %>% 
+  read_csv("data/1810/nhgis0030_csv/nhgis0030_ds3_1810_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -13,20 +16,21 @@ state_1810 <-
             # we want specific data on race, gender, and slave status
             # we want cumulative data on white pop, colored pop, and slave pop
             male_white_NA_NA = AA9001, # white male population
-            
             female_white_NA_NA = AA9002, # white female population
             
-            NA_colored_free_NA = AA7001, # free colored population
-            NA_colored_slave_NA = AA7002, # slave colored population
+            NA_white_NA_NA = AA2001, # white population
+            NA_colored_NA_NA = AA2002, # non-white population
             
+            NA_colorednonindian_free_NA = AA7001, # colored free population
+            NA_colorednonindian_slave_NA = AA7002, # colored slave population
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "religion"),
+               names_to = c("sex", "race", "slave_status", "religion"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             slave_status,
             religion = "", 

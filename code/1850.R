@@ -3,7 +3,7 @@
 library(tidyverse)
 
 state_1850 <- 
-  read_csv("data/1850/nhgis0020_ds10_1850_state.csv") %>% 
+  read_csv("data/1850/nhgis0035_csv/nhgis0035_ds10_1850_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -25,6 +25,7 @@ state_1850 <-
             male_white_NA_90to99 = AEL013,
             male_white_NA_100andover = AEL014,
             male_white_NA_unknown = AEL015,
+            
             female_white_NA_under1 = AEL016,
             female_white_NA_1to4 = AEL017,
             female_white_NA_5to9 = AEL018,
@@ -56,6 +57,7 @@ state_1850 <-
             male_colored_free_90to99 = AEL043,
             male_colored_free_100andover = AEL044,
             male_colored_free_unknown = AEL045,
+            
             female_colored_free_under1 = AEL046,
             female_colored_free_1to4 = AEL047,
             female_colored_free_5to9 = AEL048,
@@ -71,6 +73,7 @@ state_1850 <-
             female_colored_free_90to99 = AEL058,
             female_colored_free_100andover = AEL059,
             female_colored_free_unknown = AEL060,
+            
             male_colored_slave_under1 = AEL061,
             male_colored_slave_1to4 = AEL062,
             male_colored_slave_5to9 = AEL063,
@@ -86,6 +89,7 @@ state_1850 <-
             male_colored_slave_90to99 = AEL073,
             male_colored_slave_100andover = AEL074,
             male_colored_slave_unknown = AEL075,
+            
             female_colored_slave_under1 = AEL076,
             female_colored_slave_1to4 = AEL077,
             female_colored_slave_5to9 = AEL078,
@@ -104,12 +108,12 @@ state_1850 <-
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "age"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             slave_status,
             religion = "", 

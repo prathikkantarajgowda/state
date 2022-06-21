@@ -3,13 +3,20 @@
 library(tidyverse)
 
 state_1820 <- 
-  read_csv("data/1820/nhgis0020_ds4_1820_state.csv") %>% 
+  read_csv("data/1820/nhgis0032_csv/nhgis0032_ds4_1820_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
             # encoding scheme is gender_race_slavestatus_age
             # we want specific data on race, gender, and slave status
             # we want cumulative data on white pop, colored pop, and slave pop
+            
+            male_white_NA_NA = ABB001,
+            female_white_NA_NA = ABB002,
+            male_colored_slave_NA = ABB003,
+            female_colored_slave_NA = ABB004,
+            male_colored_free_NA = ABB005,
+            female_colored_free_NA = ABB006,
             
             male_white_NA_under10 = ABG001,
             male_white_NA_10to15 = ABG002,
@@ -30,6 +37,7 @@ state_1820 <-
             female_colored_slave_14to25 = ABK006,
             female_colored_slave_26to44 = ABK007,
             female_colored_slave_45andover = ABK008,
+            
             male_colored_free_under14 = ABK009,
             male_colored_free_14to25 = ABK010,
             male_colored_free_26to44 = ABK011,
@@ -38,15 +46,14 @@ state_1820 <-
             female_colored_free_14to25 = ABK014,
             female_colored_free_26to44 = ABK015,
             female_colored_free_45andover = ABK016
-            
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "age"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             slave_status,
             religion = "", 

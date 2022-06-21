@@ -3,13 +3,20 @@
 library(tidyverse)
 
 state_1830 <- 
-  read_csv("data/1830/nhgis0020_ds5_1830_state.csv") %>% 
+  read_csv("data/1830/nhgis0033_csv/nhgis0033_ds5_1830_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
             # encoding scheme is gender_race_slavestatus_age
             # we want specific data on race, gender, and slave status
             # we want cumulative data on white pop, colored pop, and slave pop
+            
+            male_white_NA_NA = ABO001,
+            female_white_NA_NA = ABO002,
+            male_colored_slave_NA = ABO003,
+            female_colored_slave_NA = ABO004,
+            male_colored_slave_NA = ABO006,
+            
             male_white_NA_under5 = ABW001,
             male_white_NA_5to9 = ABW002,
             male_white_NA_10to14 = ABW003,
@@ -23,6 +30,7 @@ state_1830 <-
             male_white_NA_80to89 = ABW011,
             male_white_NA_90to99 = ABW012,
             male_white_NA_100andover = ABW013,
+            
             female_white_NA_under5 = ABW014,
             female_white_NA_5to9 = ABW015,
             female_white_NA_10to14 = ABW016,
@@ -43,18 +51,21 @@ state_1830 <-
             male_colored_slave_36to54 = ABX004,
             male_colored_slave_55to99 = ABX005,
             male_colored_slave_100andover = ABX006,
+            
             female_colored_slave_under10 = ABX007,
             female_colored_slave_10to23 = ABX008,
             female_colored_slave_24to35 = ABX009,
             female_colored_slave_36to54 = ABX010,
             female_colored_slave_55to99 = ABX011,
             female_colored_slave_100andover = ABX012,
+            
             male_colored_free_under10 = ABX013,
             male_colored_free_10to23 = ABX014,
             male_colored_free_24to35 = ABX015,
             male_colored_free_36to54 = ABX016,
             male_colored_free_55to99 = ABX017,
             male_colored_free_100andover = ABX018,
+            
             female_colored_free_under10 = ABX019,
             female_colored_free_10to23 = ABX020,
             female_colored_free_24to35 = ABX021,
@@ -64,12 +75,12 @@ state_1830 <-
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("gender", "race", "slave_status", "age"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
             state,
-            gender, 
+            sex, 
             race,
             slave_status,
             religion = "", 
