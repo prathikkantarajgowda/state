@@ -17,7 +17,8 @@ gathered such that it intersects with the previous variables (e.g., sex is
 not complete unless we have all race x sex data for all available races).
 
 NOTE: Slavery was abolished in 1865, so lack of slave data past then is not 
-an issue
+an issue (I have filled in every box for slave data here since it is trivially
+complete)
 
 | year | race     | slave    | sex      | age      |
 |------|----------|----------|----------|----------|
@@ -30,7 +31,7 @@ an issue
 | 1850 | &check;  | &check;  | &check;  | &check;  |
 | 1860 | &check;  | &check;  | &check;  | &check;  |
 | 1870 |          |          |          |          |
-| 1880 |          |          |          |          |
+| 1880 | &check;  | &check;  | &check;  |          |
 | 1890 |          |          |          |          |
 | 1900 |          |          |          |          |
 | 1910 |          |          |          |          |

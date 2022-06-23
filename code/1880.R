@@ -1,0 +1,62 @@
+# state population data 1880 (ICPSR 02896)
+# UNFINISHED
+# race x sex data is complete
+#
+# we have race x sex x age data for ONLY whites and coloreds? furthermore,
+# there may be issues with the age data itself. we are offered the age ranges
+# 10-14, 15-20, and 21+. if we try to calculate the population of ages 0-9 by
+# subtracting the aforementioned age ranges from our total poulation stat, we 
+# get NEGATIVE values for colored males and females.
+
+library(tidyverse)
+library(haven)
+
+# state_1880_15 <- 
+#   read_dta("data/1880/DS0015/02896-0015-Data.dta") %>% 
+#   as_tibble() %>% 
+#   filter(level == 2)
+
+# state_1870_16 <- 
+#   read_dta("data/1880/DS0016/02896-0016-Data.dta") %>% 
+#   as_tibble() %>% 
+#   filter(level == 2)
+
+state_1880 <- 
+  read_dta("data/1880/DS0017/02896-0017-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
+            male_white_NA_NA = mnbwh + mfbwh, female_white_NA_NA = fnbwh + ffbwh,
+            male_colored_NA_NA = mnbcol + mfbcol, female_colored_NA_NA = fnbcol + ffbcol,
+            male_chijap_NA_NA = mnbchijp + mfbchijp, female_chijap_NA_NA = fnbchijp + ffbchijp,
+            male_indian_NA_NA = mnbind + mfbind, female_indian_NA_NA = fnbind + ffbind,
+            
+            # male_white_NA_21plus = mw210, female_white_NA_21plus = fw210,
+            # male_colored_NA_21plus = mc210, female_colored_NA_21plus = fc210,
+            # male_white_NA_15to20 = mw1520, female_white_NA_15to20 = fw1520,
+            # male_colored_NA_15to20 = mc1520, female_colored_NA_15to20 = fc1520,
+            # male_white_NA_10to14 = mw1014, female_white_NA_10to14 = fw1014,
+            # male_colored_NA_10to14 = mc1014, female_colored_NA_10to14 = fc1014,
+            
+            # male_white_NA_under10 = male_white_NA_NA - mw210 - mw1520 - mw1014,
+            # female_white_NA_under10 = female_white_NA_NA - fw210 - fw1520 - fw1014,
+            # male_colored_NA_under10 = male_colored_NA_NA - mc210 - mc1520 - mc1014,
+            # female_colored_NA_under10 = female_colored_NA_NA - fc210 - fc1520 - fc1014
+            ) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1880,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")
