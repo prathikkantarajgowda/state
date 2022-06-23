@@ -1,9 +1,10 @@
 # state population data 1930 (NHGIS)
+# race x sex x age is finished (ONLY FOR WHITES, NEGROS, AND OTHER)
 
 library(tidyverse)
 
 state_1930 <- 
-  read_csv("data/1930/nhgis0020_ds53_1930_state.csv") %>% 
+  read_csv("data/1930/nhgis0037_csv/nhgis0037_ds53_1930_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("BDJ"),

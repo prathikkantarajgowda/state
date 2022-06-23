@@ -4,7 +4,7 @@
 library(tidyverse)
 
 state_1960 <- 
-  read_csv("data/1960/nhgis0025_ds89_1960_state.csv") %>% 
+  read_csv("data/1960/nhgis0038_csv/nhgis0038_ds89_1960_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("B49"),

@@ -1,10 +1,10 @@
 # state population data 1950 (NHGIS)
-# - no data on black people (only "white" and "non_white" here?)
+# race x sex x age is done BUT RACE CATEGORIES POOR (ONLY WHITE VS NONWHITE)
 
 library(tidyverse)
 
 state_1950 <- 
-  read_csv("data/1950/nhgis0020_ds83_1950_state.csv") %>% 
+  read_csv("data/1950/nhgis0038_csv/nhgis0038_ds83_1950_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("B1W"),
