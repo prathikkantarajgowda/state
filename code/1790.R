@@ -14,12 +14,14 @@ state_1790 <-
             
             male_white_NA_NA = AAP001, # white male population
             female_white_NA_NA = AAP002, # white female population
+            NA_white_NA_NA = AAP001 + AAP002, # white population
             
             NA_colored_free_NA = AAQ001, # free colored population
             NA_colored_slave_NA = AAQ002, # slave colored population
+            NA_colored_NA_NA = AAQ001 + AAQ002 # colored population
             ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("sex", "race", "slave_status", "religion"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
@@ -27,8 +29,7 @@ state_1790 <-
             sex, 
             race,
             slave_status,
-            religion = "", 
-            age = "", 
+            age, 
             year = 1790, 
             statistic = "population",
             value,

@@ -13,10 +13,13 @@ state_1820 <-
             
             male_white_NA_NA = ABB001,
             female_white_NA_NA = ABB002,
-            male_colored_slave_NA = ABB003,
-            female_colored_slave_NA = ABB004,
-            male_colored_free_NA = ABB005,
-            female_colored_free_NA = ABB006,
+            male_nonwhite_slave_NA = ABB003,
+            female_nonwhite_slave_NA = ABB004,
+            male_nonwhite_free_NA = ABB005,
+            female_nonwhite_free_NA = ABB006,
+            
+            NA_white_NA_NA = ABB001 + ABB002, # white population
+            NA_nonwhite_NA_NA = ABB003 + ABB004 + ABB005 + ABB006, # colored population
             
             male_white_NA_under10 = ABG001,
             male_white_NA_10to15 = ABG002,

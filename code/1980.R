@@ -4,7 +4,7 @@
 library(tidyverse)
 
 state_1980 <- 
-  read_csv("data/1980/nhgis0020_ds107_1980_state.csv") %>% 
+  read_csv("data/1980/nhgis0039_ds107_1980_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("DGJ"),

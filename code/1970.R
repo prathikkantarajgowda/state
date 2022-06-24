@@ -1,0 +1,34 @@
+# state population data 1970 (NHGIS)
+# ONLY RACE DATA
+
+library(tidyverse)
+library(haven)
+
+state_1970 <- 
+  read_csv("data/1970/nhgis0041_ds94_1970_state.csv") %>% 
+  as_tibble() %>% 
+  transmute(STATE,
+            NA_white_NA_NA = CBW001,
+            NA_negro_NA_NA = CBW002,
+            NA_indian_NA_NA = CBW003,
+            NA_othernonspecified_NA_NA = CBW004,
+            NA_otherrace_NA_NA = CBW005
+            
+  ) %>% 
+  pivot_longer(cols = -c(STATE),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = STATE,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1970,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

@@ -3,7 +3,7 @@
 library(tidyverse)
 
 state_1990 <- 
-  read_csv("data/1990/nhgis0020_ds120_1990_state.csv") %>% 
+  read_csv("data/1990/nhgis0040_ds120_1990_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("ET4"),

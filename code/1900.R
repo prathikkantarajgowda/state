@@ -4,7 +4,7 @@
 library(tidyverse)
 library(haven)
 
-state_1900_20 <- 
+state_1900 <- 
   read_dta("data/1900/DS0020/02896-0020-Data.dta") %>% 
   as_tibble() %>% 
   filter(level == 2) %>% 

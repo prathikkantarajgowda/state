@@ -36,10 +36,10 @@ state_1890 <-
             
             # race data (this set includes negros, chinese, japanese, and indian
             # but does not have intersecting sex data)
-            all_negro_NA_NA = negtot,
-            all_chinese_NA_NA = chitot,
-            all_japanese_NA_NA = japtot,
-            all_indian_NA_NA = indtot,
+            NA_negro_NA_NA = negtot,
+            NA_chinese_NA_NA = chitot,
+            NA_japanese_NA_NA = japtot,
+            NA_indian_NA_NA = indtot,
             
            # race x sex x age data (ONLY FOR WHITES VS COLOREDS)
            # note: colored here is NOT short for black people. it includes

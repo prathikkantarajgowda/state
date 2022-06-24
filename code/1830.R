@@ -9,13 +9,17 @@ state_1830 <-
             
             # encoding scheme is gender_race_slavestatus_age
             # we want specific data on race, gender, and slave status
-            # we want cumulative data on white pop, colored pop, and slave pop
+            # we want cumulative data on white pop, nonwhite pop, and slave pop
             
             male_white_NA_NA = ABO001,
             female_white_NA_NA = ABO002,
-            male_colored_slave_NA = ABO003,
-            female_colored_slave_NA = ABO004,
-            male_colored_slave_NA = ABO006,
+            male_nonwhite_slave_NA = ABO003,
+            female_nonwhite_slave_NA = ABO004,
+            male_nonwhite_free_NA = ABO005,
+            female_nonwhite_free_NA = ABO006,
+            
+            NA_white_NA_NA = ABO001 + ABO002,
+            NA_nonwhite_NA_NA = ABO003 + ABO004,
             
             male_white_NA_under5 = ABW001,
             male_white_NA_5to9 = ABW002,
@@ -45,33 +49,33 @@ state_1830 <-
             female_white_NA_90to99 = ABW025,
             female_white_NA_100andover = ABW026,
             
-            male_colored_slave_under10 = ABX001,
-            male_colored_slave_10to23 = ABX002,
-            male_colored_slave_24to35 = ABX003,
-            male_colored_slave_36to54 = ABX004,
-            male_colored_slave_55to99 = ABX005,
-            male_colored_slave_100andover = ABX006,
+            male_nonwhite_slave_under10 = ABX001,
+            male_nonwhite_slave_10to23 = ABX002,
+            male_nonwhite_slave_24to35 = ABX003,
+            male_nonwhite_slave_36to54 = ABX004,
+            male_nonwhite_slave_55to99 = ABX005,
+            male_nonwhite_slave_100andover = ABX006,
             
-            female_colored_slave_under10 = ABX007,
-            female_colored_slave_10to23 = ABX008,
-            female_colored_slave_24to35 = ABX009,
-            female_colored_slave_36to54 = ABX010,
-            female_colored_slave_55to99 = ABX011,
-            female_colored_slave_100andover = ABX012,
+            female_nonwhite_slave_under10 = ABX007,
+            female_nonwhite_slave_10to23 = ABX008,
+            female_nonwhite_slave_24to35 = ABX009,
+            female_nonwhite_slave_36to54 = ABX010,
+            female_nonwhite_slave_55to99 = ABX011,
+            female_nonwhite_slave_100andover = ABX012,
             
-            male_colored_free_under10 = ABX013,
-            male_colored_free_10to23 = ABX014,
-            male_colored_free_24to35 = ABX015,
-            male_colored_free_36to54 = ABX016,
-            male_colored_free_55to99 = ABX017,
-            male_colored_free_100andover = ABX018,
+            male_nonwhite_free_under10 = ABX013,
+            male_nonwhite_free_10to23 = ABX014,
+            male_nonwhite_free_24to35 = ABX015,
+            male_nonwhite_free_36to54 = ABX016,
+            male_nonwhite_free_55to99 = ABX017,
+            male_nonwhite_free_100andover = ABX018,
             
-            female_colored_free_under10 = ABX019,
-            female_colored_free_10to23 = ABX020,
-            female_colored_free_24to35 = ABX021,
-            female_colored_free_36to54 = ABX022,
-            female_colored_free_55to99 = ABX023,
-            female_colored_free_100 = ABX024
+            female_nonwhite_free_under10 = ABX019,
+            female_nonwhite_free_10to23 = ABX020,
+            female_nonwhite_free_24to35 = ABX021,
+            female_nonwhite_free_36to54 = ABX022,
+            female_nonwhite_free_55to99 = ABX023,
+            female_nonwhite_free_100 = ABX024
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),

@@ -14,8 +14,7 @@ state_1910 <-
           female_white_NA_NA = wftot,
           male_negro_NA_NA = negmtot,
           female_negro_NA_NA = negftot,
-          all_othercolored_NA_NA = othraces,
-          all_all_NA_NA = totpop
+          NA_othercolored_NA_NA = othraces,
           
           # race x sex x age data is only available for white and negro people,
           # not intersecting with sex

@@ -47,7 +47,7 @@ state_1870 <-
             race,
             slave_status,
             age,
-            year = 1910,
+            year = 1870,
             statistic = "population",
             value,
             source = "INSERTSOURCENAMEHERE",

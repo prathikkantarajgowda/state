@@ -19,11 +19,12 @@ state_1800 <-
             male_white_NA_NA = AA0001, # white male population
             female_white_NA_NA = AA0002, # white female population
             
-            NA_colorednonindian_free_NA = AAY001, # free colored population (not including indians)
-            NA_colorednonindian_slave_NA = AAY002, # slave colored population (not including indians)
+            NA_nonwhiteexcludingindians_free_NA = AAY001, # free colored population (not including indians)
+            NA_nonwhiteexcludingindians_slave_NA = AAY002, # slave colored population (not including indians)
             
             NA_white_NA_NA = AAT001,# white population
-            NA_colored_NA_NA = AAT002 # colored population (includes indians)
+            NA_nonwhite_NA_NA = AAT002, # colored population (includes indians)
+            NA_nonwhiteexcludingindians_NA_NA = AAY001 + AAY002
   ) %>% 
   pivot_longer(cols = -c("state", "year"),
                names_to = c("sex", "race", "slave_status", "religion"),
