@@ -1,0 +1,44 @@
+# state population data 1920 (ICPSR 02896)
+# race x sex x age is finished for whites and negros (NOT FOR OTHER)
+
+library(tidyverse)
+library(haven)
+
+state_1920 <- 
+  read_dta("data/1920/DS0024/02896-0024-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
+            
+            # 21 and over
+            male_white_NA_21plus = nwnpm21 + nwfmpm21 + fbwm21,
+            female_white_NA_21plus = nwnpf21 + nwfmpf21 + fbwf21,
+            male_negro_NA_21plus = negm21,
+            female_negro_NA_21plus = negf21,
+            male_other_NA_21plus = othm21,
+            female_other_NA_21plus = othf21,
+            
+            # under 21 (under 21 data unavailable for other. could be estimated
+            # by dividing total other pop by 2 and subtracting the 21+ pop)
+            male_white_NA_under21 = (nwmtot + fbwmtot) - male_white_NA_21plus,
+            female_white_NA_under21 = (nwftot + fbwftot) - female_white_NA_21plus,
+            male_negro_NA_under21 = negmtot - male_negro_NA_21plus,
+            female_negro_NA_under21 = negftot - female_negro_NA_21plus,
+  ) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1920,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

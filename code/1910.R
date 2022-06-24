@@ -1,0 +1,40 @@
+# state population data 1910 (ICPSR 02896)
+
+library(tidyverse)
+library(haven)
+
+state_1910 <- 
+  read_dta("data/1910/DS0022/02896-0022-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
+          # race x sex (ONLY FOR WHITES AND NEGROS). we are lacking race x sex
+          # data for other coloreds, so our data is technically incomplete
+          male_white_NA_NA = wmtot,
+          female_white_NA_NA = wftot,
+          male_negro_NA_NA = negmtot,
+          female_negro_NA_NA = negftot,
+          all_othercolored_NA_NA = othraces,
+          all_all_NA_NA = totpop
+          
+          # race x sex x age data is only available for white and negro people,
+          # not intersecting with sex
+          
+) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1910,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

@@ -1,5 +1,6 @@
 # state population data 1870 (ICPSR 02896)
 # UNFINISHED
+# only race data so far
 # 11, 12, 13, and 14 are the ICPSR 02896 datasets for 1870. however, not enough
 # data is available
 
@@ -11,14 +12,45 @@ state_1870_11 <-
   as_tibble() %>% 
   filter(level == 2)
 
-state_1870_12 <- 
-  read_dta("data/1870/DS0012/02896-0012-Data.dta") %>% 
-  as_tibble()
+# state_1870_12 <- 
+#   read_dta("data/1870/DS0012/02896-0012-Data.dta") %>% 
+#   as_tibble()
 
-state_1870_13 <- 
-  read_dta("data/1870/DS0013/02896-0013-Data.dta") %>% 
-  as_tibble()
+# state_1870_13 <- 
+#   read_dta("data/1870/DS0013/02896-0013-Data.dta") %>% 
+#   as_tibble()
 
-state_1870_14 <- 
-  read_dta("data/1870/DS0014/02896-0014-Data.dta") %>% 
-  as_tibble()
+# state_1870_14 <- 
+#   read_dta("data/1870/DS0014/02896-0014-Data.dta") %>% 
+#   as_tibble()
+
+state_1870 <- 
+  transmute(state_1870_11,
+            name,
+
+            # LOOK AT PART 14 FOR AGE DATA?
+            all_white_NA_NA = whtot,
+            all_colored_NA_NA = cotot,
+            all_chinese_NA_NA = chitot,
+            all_indian_NA_NA = indtot
+            
+            # race x sex x age data is only available for men
+            
+  ) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1910,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

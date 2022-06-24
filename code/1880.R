@@ -1,12 +1,16 @@
 # state population data 1880 (ICPSR 02896)
 # UNFINISHED
-# race x sex data is complete
+# race x sex data finished for whites, coloreds, chinese/japanese, & indians
 #
-# we have race x sex x age data for ONLY whites and coloreds? furthermore,
+# we have race x sex x age data for only whites and coloreds? furthermore,
 # there may be issues with the age data itself. we are offered the age ranges
 # 10-14, 15-20, and 21+. if we try to calculate the population of ages 0-9 by
-# subtracting the aforementioned age ranges from our total poulation stat, we 
+# subtracting the aforementioned age ranges from our total population stat, we 
 # get NEGATIVE values for colored males and females.
+#
+# COLORED HERE EITHER INCLUDES BLACKS OR IS BLACKS? if you add the population 
+# data for whites, coloreds, chinese/japanese, and indians you get the total 
+# population - suggesting that black people are included in the colored stat
 
 library(tidyverse)
 library(haven)

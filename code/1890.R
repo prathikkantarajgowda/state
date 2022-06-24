@@ -1,0 +1,73 @@
+# state population data 1890 (ICPSR 02896)
+# UNFINISHED
+# race x sex data is complete
+#
+# we have race x sex x age data available ONLY for whites and coloreds.
+# furthermore, the data for 21+ females is unavailable - so race x sex x age
+# is incomplete here
+#
+# colored here includes negros, chinese, japanese, and indians (not just blacks)
+
+library(tidyverse)
+library(haven)
+
+state_1890_17 <- 
+  read_dta("data/1890/DS0018/02896-0018-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2)
+
+state_1890_18 <- 
+  read_dta("data/1890/DS0019/02896-0019-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2)
+
+state_1890 <- 
+  read_dta("data/1890/DS0018/02896-0018-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
+            # race x sex (ONLY FOR WHITES VS COLOREDS)
+            # note: colored here is NOT short for black people. it includes
+            # negro, chinese, japanese, and indian
+            male_white_NA_NA = fbwmtot + nbwmnp + nbwmfp,
+            female_white_NA_NA = fbwftot + nbwfnp + nbwffp,
+            male_colored_NA_NA = colmtot,
+            female_colored_NA_NA = colftot,
+            
+            # race data (this set includes negros, chinese, japanese, and indian
+            # but does not have intersecting sex data)
+            all_negro_NA_NA = negtot,
+            all_chinese_NA_NA = chitot,
+            all_japanese_NA_NA = japtot,
+            all_indian_NA_NA = indtot,
+            
+           # race x sex x age data (ONLY FOR WHITES VS COLOREDS)
+           # note: colored here is NOT short for black people. it includes
+           # negro, chinese, japanese, and indian
+           #
+           # UNFINISHED: we need population data for white and colored females 
+           # aged 21+ to finish the race x sex x age data 
+           male_white_NA_5to20 = nbwm520 + fbwm520,
+           female_white_NA_5to20 = nbwf520 + fbwf520,
+           male_colored_NA_5to20 = colm520,
+           female_colored_NA_5to20 = colf520,
+           male_white_NA_21plus = nbwm21 + fbwm21,
+           male_colored_NA_21plus = colm21,
+  ) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1890,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

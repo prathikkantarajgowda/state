@@ -1,0 +1,42 @@
+# state population data 1900 (ICPSR 02896)
+# race x sex (FOR WHITES, COLOREDS, NEGROS)
+
+library(tidyverse)
+library(haven)
+
+state_1900_20 <- 
+  read_dta("data/1900/DS0020/02896-0020-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
+          # race x sex (ONLY FOR WHITES, COLOREDS, NEGROS)
+          # note: colored here is NOT short for black people. it includes
+          # negro, chinese, japanese, and indian
+          male_white_NA_NA = fbwmtot + nbwmnp + nbwmfp,
+          female_white_NA_NA = fbwftot + nbwfnp + nbwffp,
+          male_negro_NA_NA = negmtot,
+          female_negro_NA_NA = negftot,
+          male_colored_NA_NA = colmtot,
+          female_colored_NA_NA = colftot,
+          
+          # race x sex x age data is only available for white and negro men,
+          # not women!
+          
+) %>% 
+  pivot_longer(cols = -c(name),
+               names_to = c("sex", "race", "slave_status", "age"),
+               names_sep = "_",
+               values_to = "value") %>% 
+  transmute(country = "United States", 
+            state = name,
+            sex,
+            race,
+            slave_status,
+            age,
+            year = 1900,
+            statistic = "population",
+            value,
+            source = "INSERTSOURCENAMEHERE",
+            notes = "",
+            personentered = "Prathik", 
+            complete = "yes")

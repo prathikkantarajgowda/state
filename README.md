@@ -16,33 +16,31 @@ decade. The box is not checked off unless all appropriate data has been
 gathered such that it intersects with the previous variables (e.g., sex is 
 not complete unless we have all race x sex data for all available races).
 
-NOTE: Slavery was abolished in 1865, so lack of slave data past then is not 
-an issue (I have filled in every box for slave data here since it is trivially
-complete)
+NOTE: Slavery was abolished in 1865
 
-| year | race     | slave    | sex      | age      |
-|------|----------|----------|----------|----------|
-| 1790 | &check;  | &check;  |          |          |
-| 1800 | &check;  | &check;  |          |          |
-| 1810 | &check;  | &check;  |          |          |
-| 1820 | &check;  | &check;  | &check;  | &check;  |
-| 1830 | &check;  | &check;  | &check;  | &check;  |
-| 1840 | &check;  | &check;  | &check;  | &check;  |
-| 1850 | &check;  | &check;  | &check;  | &check;  |
-| 1860 | &check;  | &check;  | &check;  | &check;  |
-| 1870 |          |          |          |          |
-| 1880 | &check;  | &check;  | &check;  |          |
-| 1890 |          |          |          |          |
-| 1900 |          |          |          |          |
-| 1910 |          |          |          |          |
-| 1920 |          |          |          |          |
-| 1930 | &check;  | &check;  | &check;  | &check;  |
-| 1940 | &check;  | &check;  | &check;  | &check;  |
-| 1950 | &check;  | &check;  | &check;  | &check;  |
-| 1960 | &check;  | &check;  | &check;  | &check;  |
-| 1970 |          |          |          |          |
-| 1980 |          |          |          |          |
-| 1990 |          |          |          |          |
-| 2000 |          |          |          |          |
-| 2010 |          |          |          |          |
-| 2020 |          |          |          |          |
+| year | race     | sex      | age      |
+|------|----------|----------|----------|
+| 1790 | &check;  |          |          |
+| 1800 | &check;  |          |          |
+| 1810 | &check;  |          |          |
+| 1820 | &check;  | &check;  | &check;  |
+| 1830 | &check;  | &check;  | &check;  |
+| 1840 | &check;  | &check;  | &check;  |
+| 1850 | &check;  | &check;  | &check;  |
+| 1860 | &check;  | &check;  | &check;  |
+| 1870 | &check;  |          |          |
+| 1880 | &check;  | &check;  |          |
+| 1890 | &check;  | &check;  |          |
+| 1900 | &check;  | &check;  |          |
+| 1910 | &check;  | &check;  | &check;  |
+| 1920 | &check;  | &check;  | &check;  |
+| 1930 | &check;  | &check;  | &check;  |
+| 1940 | &check;  | &check;  | &check;  |
+| 1950 | &check;  | &check;  | &check;  |
+| 1960 | &check;  | &check;  | &check;  |
+| 1970 |          |          |          |
+| 1980 |          |          |          |
+| 1990 |          |          |          |
+| 2000 |          |          |          |
+| 2010 |          |          |          |
+| 2020 |          |          |          |
