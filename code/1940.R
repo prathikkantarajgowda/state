@@ -4,7 +4,7 @@
 library(tidyverse)
 
 state_1940 <- 
-  read_csv("data/1940/nhgis0038_csv/nhgis0038_ds77_1940_state.csv") %>% 
+  read_csv("data/1940/nhgis0038_ds77_1940_state.csv") %>% 
   as_tibble() %>%
   mutate(year = YEAR, state = STATE) %>% 
   pivot_longer(cols = starts_with("BV1"),
@@ -13,13 +13,14 @@ state_1940 <-
          mod = demographic %% 16) %>% 
   transmute(country = "United States", 
             state,
-            gender = ifelse(between(demographic, 1, 16) |
+            sex = ifelse(between(demographic, 1, 16) |
                               between(demographic, 33, 48) |
                               between(demographic, 65, 80),
                             "male", "female"),
             race = ifelse(between(demographic, 1, 32), "white",
                           ifelse(between(demographic, 33, 64), 
                                  "negro", "other")),
+            slave_status = "NA",
             age = case_when(mod == 0 ~ "75_and_over",
                             mod == 1 ~ "0_to_4",
                             mod == 2 ~ "5_to_0",

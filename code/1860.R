@@ -4,7 +4,7 @@
 library(tidyverse)
 
 state_1860 <- 
-  read_csv("data/1860/nhgis0036_csv/nhgis0036_ds14_1860_state.csv") %>% 
+  read_csv("data/1860/nhgis0036_ds14_1860_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -209,6 +209,7 @@ state_1860 <-
             state,
             sex, 
             race,
+            slave_status,
             age, 
             year = 1860, 
             statistic = "population",

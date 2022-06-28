@@ -3,7 +3,7 @@
 library(tidyverse)
 
 state_1820 <- 
-  read_csv("data/1820/nhgis0032_csv/nhgis0032_ds4_1820_state.csv") %>% 
+  read_csv("data/1820/nhgis0032_ds4_1820_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             
@@ -49,7 +49,7 @@ state_1820 <-
             female_colored_free_14to25 = ABK014,
             female_colored_free_26to44 = ABK015,
             female_colored_free_45andover = ABK016
-  ) %>% 
+            ) %>% 
   pivot_longer(cols = -c("state", "year"),
                names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
@@ -59,7 +59,6 @@ state_1820 <-
             sex, 
             race,
             slave_status,
-            religion = "", 
             age, 
             year = 1820, 
             statistic = "population",

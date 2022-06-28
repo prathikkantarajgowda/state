@@ -41,6 +41,6 @@ NOTE: Slavery was abolished in 1865
 | 1970 | &check;  |          |          |
 | 1980 | &check;  | &check;  | &check;  |
 | 1990 | &check;  | &check;  | &check;  |
-| 2000 |          |          |          |
+| 2000 | &check;  | &check;  | &check;  |
 | 2010 |          |          |          |
 | 2020 |          |          |          |

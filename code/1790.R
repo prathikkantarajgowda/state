@@ -4,7 +4,7 @@
 library(tidyverse)
 
 state_1790 <- 
-  read_csv("data/1790/nhgis0028_csv/nhgis0028_ds1_1790_state.csv") %>% 
+  read_csv("data/1790/nhgis0028_ds1_1790_state.csv") %>% 
   as_tibble() %>%
   transmute(year = YEAR, state = STATE,
             

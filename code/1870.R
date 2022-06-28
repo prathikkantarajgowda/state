@@ -7,10 +7,10 @@
 library(tidyverse)
 library(haven)
 
-state_1870_11 <- 
-  read_dta("data/1870/DS0011/02896-0011-Data.dta") %>% 
-  as_tibble() %>% 
-  filter(level == 2)
+# state_1870_11 <- 
+#   read_dta("data/1870/DS0011/02896-0011-Data.dta") %>% 
+#   as_tibble() %>% 
+#   filter(level == 2)
 
 # state_1870_12 <- 
 #   read_dta("data/1870/DS0012/02896-0012-Data.dta") %>% 
@@ -25,8 +25,10 @@ state_1870_11 <-
 #   as_tibble()
 
 state_1870 <- 
-  transmute(state_1870_11,
-            name,
+  read_dta("data/1870/DS0011/02896-0011-Data.dta") %>% 
+  as_tibble() %>% 
+  filter(level == 2) %>% 
+  transmute(name,
 
             # LOOK AT PART 14 FOR AGE DATA?
             all_white_NA_NA = whtot,
