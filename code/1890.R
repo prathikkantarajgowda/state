@@ -11,15 +11,15 @@
 library(tidyverse)
 library(haven)
 
-state_1890_17 <- 
-  read_dta("data/1890/DS0018/02896-0018-Data.dta") %>% 
-  as_tibble() %>% 
-  filter(level == 2)
+# state_1890_17 <- 
+#   read_dta("data/1890/DS0018/02896-0018-Data.dta") %>% 
+#   as_tibble() %>% 
+#   filter(level == 2)
 
-state_1890_18 <- 
-  read_dta("data/1890/DS0019/02896-0019-Data.dta") %>% 
-  as_tibble() %>% 
-  filter(level == 2)
+# state_1890_18 <- 
+#   read_dta("data/1890/DS0019/02896-0019-Data.dta") %>% 
+#   as_tibble() %>% 
+#   filter(level == 2)
 
 state_1890 <- 
   read_dta("data/1890/DS0018/02896-0018-Data.dta") %>% 

@@ -27,7 +27,7 @@ state_1800 <-
             NA_nonwhiteexcludingindians_NA_NA = AAY001 + AAY002
             ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("sex", "race", "slave_status", "religion"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 

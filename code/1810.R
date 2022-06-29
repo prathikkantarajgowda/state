@@ -26,7 +26,7 @@ state_1810 <-
             NA_nonwhiteexcludingindians_NA_NA = AA7001 + AA7002 # colored non indian population
             ) %>% 
   pivot_longer(cols = -c("state", "year"),
-               names_to = c("sex", "race", "slave_status", "religion"),
+               names_to = c("sex", "race", "slave_status", "age"),
                names_sep = "_",
                values_to = "value") %>%
   transmute(country = "United States", 
