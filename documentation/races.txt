@@ -1,0 +1,57 @@
+Documentation of the different race category names used in this project
+-----------------------------------------------------------------------
+
+WHITE
+- white
+
+BLACK
+- negro
+- colored
+  - can either be a synonym for blacks/african americans or a more general term 
+    including other nonwhites depending on the decade/context
+- black
+  
+NATIVE/INDIGENOUS
+- native
+- nativehawaiian_pacificislander
+  - natives/indigenous peoples in hawaii and pacific islands. does not include
+    native peoples in mainland America
+- indian
+  - native american, not referring to south asian indians
+  
+MIXED RACE
+- halfbreed
+  - mixed race, presumably white and nonwhite
+- multiracial
+
+ASIAN
+- asian
+- aapi
+  - just used in 1980?
+  - asians and pacific islanders
+- asiatic
+  - asians generally. may or may not include south asians
+- chinese
+- chijap
+  - chinese and japanese
+- japanese
+
+OTHER/AMBIGUOUS
+- colored
+  - can either be a synonym for blacks/african americans or a more general term 
+    including other nonwhites depending on the decade/context
+- othercolored
+  - only appears in 1910
+  - colored workers who are not "negros"
+- other
+  - always specific to the enumerated racial categories of the decade
+  - it's a catch-all category for races not mentioned previously
+- othernonspecified
+  - only appears in 1970
+  - separate category from "other", but presumably overlaps? 
+  - likely refers to census takers who did not specify their race after checking
+    the "other" box
+- nonwhite
+- nonwhiteexcludingindians 
+  - only appears in 1800, 1810
+  - entired colored/nonwhite population excluding native americans

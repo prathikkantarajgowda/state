@@ -23,6 +23,7 @@ state_1840 <-
             male_white_NA_80to89 = ACY011,
             male_white_NA_90to99 = ACY012,
             male_white_NA_100andover = ACY013,
+            
             female_white_NA_under5 = ACY014,
             female_white_NA_5to9 = ACY015,
             female_white_NA_10to14 = ACY016,
@@ -43,18 +44,21 @@ state_1840 <-
             male_colored_free_36to54 = ACZ004,
             male_colored_free_55to99 = ACZ005,
             male_colored_free_100andover = ACZ006,
+            
             female_colored_free_under10 = ACZ007,
             female_colored_free_10to23 = ACZ008,
             female_colored_free_24to35 = ACZ009,
             female_colored_free_36to54 = ACZ010,
             female_colored_free_55to99 = ACZ011,
             female_colored_free_100andover = ACZ012,
+            
             male_colored_slave_under10 = ACZ013,
             male_colored_slave_10to23 = ACZ014,
             male_colored_slave_24to35 = ACZ015,
             male_colored_slave_36to54 = ACZ016,
             male_colored_slave_55to99 = ACZ017,
             male_colored_slave_100andover = ACZ018,
+            
             female_colored_slave_under10 = ACZ019,
             female_colored_slave_10to23 = ACZ020,
             female_colored_slave_24to35 = ACZ021,

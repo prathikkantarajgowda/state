@@ -31,10 +31,10 @@ state_1870 <-
   transmute(name,
 
             # LOOK AT PART 14 FOR AGE DATA?
-            all_white_NA_NA = whtot,
-            all_colored_NA_NA = cotot,
-            all_chinese_NA_NA = chitot,
-            all_indian_NA_NA = indtot
+            NA_white_NA_NA = whtot,
+            NA_colored_NA_NA = cotot,
+            NA_chinese_NA_NA = chitot,
+            NA_indian_NA_NA = indtot
             
             # race x sex x age data is only available for men
             

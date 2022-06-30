@@ -12,7 +12,7 @@ state_1970 <-
             NA_negro_NA_NA = CBW002,
             NA_indian_NA_NA = CBW003,
             NA_othernonspecified_NA_NA = CBW004,
-            NA_otherrace_NA_NA = CBW005
+            NA_other_NA_NA = CBW005
             
   ) %>% 
   pivot_longer(cols = -c(STATE),
