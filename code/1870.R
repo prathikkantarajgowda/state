@@ -34,7 +34,7 @@ state_1870 <-
             NA_white_NA_NA = whtot,
             NA_colored_NA_NA = cotot,
             NA_chinese_NA_NA = chitot,
-            NA_indian_NA_NA = indtot
+            NA_native_NA_NA = indtot
             
             # race x sex x age data is only available for men
             

@@ -1,5 +1,5 @@
 # state population data 1940 (NHGIS)
-# race x sex x age is finished (ONLY FOR WHITES, NEGROS, AND OTHER)
+# race x sex x age is finished (ONLY FOR WHITES, blackS, AND OTHER)
 
 library(tidyverse)
 
@@ -19,7 +19,7 @@ state_1940 <-
                             "male", "female"),
             race = ifelse(between(demographic, 1, 32), "white",
                           ifelse(between(demographic, 33, 64), 
-                                 "negro", "other")),
+                                 "black", "other")),
             slave_status = "NA",
             age = case_when(mod == 0 ~ "75_and_over",
                             mod == 1 ~ "0_to_4",

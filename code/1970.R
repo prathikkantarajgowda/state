@@ -9,8 +9,8 @@ state_1970 <-
   as_tibble() %>% 
   transmute(STATE,
             NA_white_NA_NA = CBW001,
-            NA_negro_NA_NA = CBW002,
-            NA_indian_NA_NA = CBW003,
+            NA_black_NA_NA = CBW002,
+            NA_native_NA_NA = CBW003,
             NA_othernonspecified_NA_NA = CBW004,
             NA_other_NA_NA = CBW005
             

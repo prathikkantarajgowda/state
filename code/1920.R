@@ -1,5 +1,5 @@
 # state population data 1920 (ICPSR 02896)
-# race x sex x age is finished for whites and negros (NOT FOR OTHER)
+# race x sex x age is finished for whites and blacks (NOT FOR OTHER)
 
 library(tidyverse)
 library(haven)
@@ -13,8 +13,8 @@ state_1920 <-
             # 21 and over
             male_white_NA_21plus = nwnpm21 + nwfmpm21 + fbwm21,
             female_white_NA_21plus = nwnpf21 + nwfmpf21 + fbwf21,
-            male_negro_NA_21plus = negm21,
-            female_negro_NA_21plus = negf21,
+            male_black_NA_21plus = negm21,
+            female_black_NA_21plus = negf21,
             male_other_NA_21plus = othm21,
             female_other_NA_21plus = othf21,
             
@@ -22,8 +22,8 @@ state_1920 <-
             # by dividing total other pop by 2 and subtracting the 21+ pop)
             male_white_NA_under21 = (nwmtot + fbwmtot) - male_white_NA_21plus,
             female_white_NA_under21 = (nwftot + fbwftot) - female_white_NA_21plus,
-            male_negro_NA_under21 = negmtot - male_negro_NA_21plus,
-            female_negro_NA_under21 = negftot - female_negro_NA_21plus,
+            male_black_NA_under21 = negmtot - male_black_NA_21plus,
+            female_black_NA_under21 = negftot - female_black_NA_21plus,
   ) %>% 
   pivot_longer(cols = -c(name),
                names_to = c("sex", "race", "slave_status", "age"),

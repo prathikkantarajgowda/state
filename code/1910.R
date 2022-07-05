@@ -8,15 +8,15 @@ state_1910 <-
   as_tibble() %>% 
   filter(level == 2) %>% 
   transmute(name,
-          # race x sex (ONLY FOR WHITES AND NEGROS). we are lacking race x sex
+          # race x sex (ONLY FOR WHITES AND blackS). we are lacking race x sex
           # data for other coloreds, so our data is technically incomplete
           male_white_NA_NA = wmtot,
           female_white_NA_NA = wftot,
-          male_negro_NA_NA = negmtot,
-          female_negro_NA_NA = negftot,
+          male_black_NA_NA = negmtot,
+          female_black_NA_NA = negftot,
           NA_othercolored_NA_NA = othraces,
           
-          # race x sex x age data is only available for white and negro people,
+          # race x sex x age data is only available for white and black people,
           # not intersecting with sex
           
 ) %>% 

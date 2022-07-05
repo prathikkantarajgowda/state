@@ -19,7 +19,7 @@ state_1930 <-
                             "male", "female"),
             race = ifelse(between(demographic, 1, 26), "white",
                           ifelse(between(demographic, 27, 52),
-                                 "negro", "other")),
+                                 "black", "other")),
             slave_status = "NA",
             age = case_when(mod == 0 ~ "unknown",
                             mod == 1 ~ "0_to_4",

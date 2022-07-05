@@ -1,5 +1,5 @@
 # state population data 1900 (ICPSR 02896)
-# race x sex (FOR WHITES, COLOREDS, NEGROS)
+# race x sex (FOR WHITES, COLOREDS, blackS)
 
 library(tidyverse)
 library(haven)
@@ -9,17 +9,17 @@ state_1900 <-
   as_tibble() %>% 
   filter(level == 2) %>% 
   transmute(name,
-          # race x sex (ONLY FOR WHITES, COLOREDS, NEGROS)
+          # race x sex (ONLY FOR WHITES, COLOREDS, blackS)
           # note: colored here is NOT short for black people. it includes
-          # negro, chinese, japanese, and indian
+          # black, chinese, japanese, and native
           male_white_NA_NA = fbwmtot + nbwmnp + nbwmfp,
           female_white_NA_NA = fbwftot + nbwfnp + nbwffp,
-          male_negro_NA_NA = negmtot,
-          female_negro_NA_NA = negftot,
+          male_black_NA_NA = negmtot,
+          female_black_NA_NA = negftot,
           male_colored_NA_NA = colmtot,
           female_colored_NA_NA = colftot,
           
-          # race x sex x age data is only available for white and negro men,
+          # race x sex x age data is only available for white and black men,
           # not women!
           
 ) %>% 

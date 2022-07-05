@@ -1,6 +1,6 @@
 # state population data 1880 (ICPSR 02896)
 # UNFINISHED
-# race x sex data finished for whites, coloreds, chinese/japanese, & indians
+# race x sex data finished for whites, coloreds, chinese/japanese, & natives
 #
 # we have race x sex x age data for only whites and coloreds? furthermore,
 # there may be issues with the age data itself. we are offered the age ranges
@@ -9,7 +9,7 @@
 # get NEGATIVE values for colored males and females.
 #
 # COLORED HERE EITHER INCLUDES BLACKS OR IS BLACKS? if you add the population 
-# data for whites, coloreds, chinese/japanese, and indians you get the total 
+# data for whites, coloreds, chinese/japanese, and natives you get the total 
 # population - suggesting that black people are included in the colored stat
 
 library(tidyverse)
@@ -33,7 +33,7 @@ state_1880 <-
             male_white_NA_NA = mnbwh + mfbwh, female_white_NA_NA = fnbwh + ffbwh,
             male_colored_NA_NA = mnbcol + mfbcol, female_colored_NA_NA = fnbcol + ffbcol,
             male_chijap_NA_NA = mnbchijp + mfbchijp, female_chijap_NA_NA = fnbchijp + ffbchijp,
-            male_indian_NA_NA = mnbind + mfbind, female_indian_NA_NA = fnbind + ffbind,
+            male_native_NA_NA = mnbind + mfbind, female_native_NA_NA = fnbind + ffbind,
             
             # male_white_NA_21plus = mw210, female_white_NA_21plus = fw210,
             # male_colored_NA_21plus = mc210, female_colored_NA_21plus = fc210,

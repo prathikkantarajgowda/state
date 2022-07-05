@@ -6,7 +6,7 @@
 # furthermore, the data for 21+ females is unavailable - so race x sex x age
 # is incomplete here
 #
-# colored here includes negros, chinese, japanese, and indians (not just blacks)
+# colored here includes blacks, chinese, japanese, and natives (not just blacks)
 
 library(tidyverse)
 library(haven)
@@ -28,22 +28,22 @@ state_1890 <-
   transmute(name,
             # race x sex (ONLY FOR WHITES VS COLOREDS)
             # note: colored here is NOT short for black people. it includes
-            # negro, chinese, japanese, and indian
+            # black, chinese, japanese, and native
             male_white_NA_NA = fbwmtot + nbwmnp + nbwmfp,
             female_white_NA_NA = fbwftot + nbwfnp + nbwffp,
             male_colored_NA_NA = colmtot,
             female_colored_NA_NA = colftot,
             
-            # race data (this set includes negros, chinese, japanese, and indian
+            # race data (this set includes blacks, chinese, japanese, and native
             # but does not have intersecting sex data)
-            NA_negro_NA_NA = negtot,
+            NA_black_NA_NA = negtot,
             NA_chinese_NA_NA = chitot,
             NA_japanese_NA_NA = japtot,
-            NA_indian_NA_NA = indtot,
+            NA_native_NA_NA = indtot,
             
            # race x sex x age data (ONLY FOR WHITES VS COLOREDS)
            # note: colored here is NOT short for black people. it includes
-           # negro, chinese, japanese, and indian
+           # black, chinese, japanese, and native
            #
            # UNFINISHED: we need population data for white and colored females 
            # aged 21+ to finish the race x sex x age data 
