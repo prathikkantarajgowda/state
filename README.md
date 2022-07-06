@@ -16,8 +16,6 @@ decade. The box is not checked off unless all appropriate data has been
 gathered such that it intersects with the previous variables (e.g., sex is 
 not complete unless we have all race x sex data for all available races).
 
-NOTE: Slavery was abolished in 1865
-
 | year | race     | sex      | age      |
 |------|----------|----------|----------|
 | 1790 | &check;  |          |          |
@@ -44,3 +42,7 @@ NOTE: Slavery was abolished in 1865
 | 2000 | &check;  | &check;  | &check;  |
 | 2010 |          |          |          |
 | 2020 |          |          |          |
+
+Resources:
+- Document on Race/Ethnicity Over Time in the Census 
+(https://www.census.gov/data-tools/demo/race/MREAD_1790_2010.html)
