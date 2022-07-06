@@ -14,11 +14,7 @@ state_1910 <-
           female_white_NA_NA = wftot,
           male_black_NA_NA = negmtot,
           female_black_NA_NA = negftot,
-          NA_othercolored_NA_NA = othraces,
-          
-          # race x sex x age data is only available for white and black people,
-          # not intersecting with sex
-          
+          NA_nonwhiteorblack_NA_NA = othraces,
 ) %>% 
   pivot_longer(cols = -c(name),
                names_to = c("sex", "race", "slave_status", "age"),

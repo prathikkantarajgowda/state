@@ -12,10 +12,10 @@ state_1950 <-
             # we want cumulative data on white pop, colored pop, and slave pop
             male_white_NA_NA = B3P001 + B3P002,
             male_black_NA_NA = B3P003,
-            male_other_NA_NA = B3P004,
+            male_nonwhiteorblack_NA_NA = B3P004,
             female_white_NA_NA = B3P005 + B3P006,
             female_black_NA_NA = B3P007,
-            female_other_NA_NA = B3P008
+            female_nonwhiteorblack_NA_NA = B3P008
             
   ) %>% 
   pivot_longer(cols = -c("state", "year"),

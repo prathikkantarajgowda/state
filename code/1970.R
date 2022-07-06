@@ -10,10 +10,7 @@ state_1970 <-
   transmute(STATE,
             NA_white_NA_NA = CBW001,
             NA_black_NA_NA = CBW002,
-            NA_native_NA_NA = CBW003,
-            NA_othernonspecified_NA_NA = CBW004,
-            NA_other_NA_NA = CBW005
-            
+            NA_nonwhiteorblack_NA_NA = CBW003 + CBW004 + CBW005,
   ) %>% 
   pivot_longer(cols = -c(STATE),
                names_to = c("sex", "race", "slave_status", "age"),
