@@ -16,12 +16,6 @@ state_1900 <-
           female_white_NA_NA = fbwftot + nbwfnp + nbwffp,
           male_black_NA_NA = negmtot,
           female_black_NA_NA = negftot,
-          male_colored_NA_NA = colmtot,
-          female_colored_NA_NA = colftot,
-          
-          # race x sex x age data is only available for white and black men,
-          # not women!
-          
 ) %>% 
   pivot_longer(cols = -c(name),
                names_to = c("sex", "race", "slave_status", "age"),
