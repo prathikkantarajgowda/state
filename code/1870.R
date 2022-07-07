@@ -32,7 +32,7 @@ state_1870 <-
 
             # LOOK AT PART 14 FOR AGE DATA?
             NA_white_NA_NA = whtot,
-            NA_colored_NA_NA = cotot,
+            NA_black_NA_NA = cotot,
             NA_chinese_NA_NA = chitot,
             NA_native_NA_NA = indtot
             
